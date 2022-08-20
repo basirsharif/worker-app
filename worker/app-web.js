@@ -630,7 +630,7 @@ $(function() {
      });
 
      $(document).on('click', '#copy_script', function(){
-      copyToClipboard($(this).attr('data-video'));
+      copyTextToClipboard($(this).attr('data-video'));
      });
 
 });
@@ -655,8 +655,9 @@ function copyToClipboard() {
     document.execCommand("copy");
 }
 
-function copyToClipboard(text) {
+function copyTextToClipboard(text) {
   var textarea = document.createElement("textarea");
+  textarea.setAttribute("id", "copy_script_id");
   document.body.appendChild(textarea);
   textarea.value = text;
   textarea.select();
