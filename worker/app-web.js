@@ -655,15 +655,16 @@ function copyToClipboard() {
     document.execCommand("copy");
 }
 
-function copyToClipboard(text_data) {
+function copyToClipboard(text) {
   var textarea = document.createElement("textarea");
   document.body.appendChild(textarea);
-  textarea.value = text_data;
+  textarea.value = text;
   textarea.select();
   var text = textarea.value;
   //textarea.setSelectionRange(0, 99999);
   textarea.setSelectionRange(0, text.length);
   document.execCommand("copy");
+  document.body.removeChild(textarea);
 }
 
 function outFunc() {
